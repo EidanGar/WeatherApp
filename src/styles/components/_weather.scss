@@ -1,0 +1,132 @@
+$current-color: #101010;
+$current-bg-color: #fcfcfc;
+
+.weather {
+  color: $current-color;
+  background-color: $current-bg-color;
+  display: flex;
+  width: min(90vw, 650px);
+  padding: 1.5rem;
+  border-radius: 12px;
+  -webkit-box-shadow: 10px 15px 13px -1px rgba(0, 0, 0, 0.11);
+  -moz-box-shadow: 10px 15px 13px -1px rgba(0, 0, 0, 0.11);
+  box-shadow: 10px 15px 13px -1px rgba(0, 0, 0, 0.11);
+  gap: 1rem;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  &-divider {
+    background-color: #505050;
+    height: 3px;
+    width: 100%;
+  }
+}
+
+.weather-current {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  white-space: nowrap;
+
+  &-temperature {
+    display: flex;
+    gap: 0.5rem;
+
+    &-measurement {
+      display: flex;
+      font-size: 1.5rem;
+      gap: 0.5rem;
+    }
+
+    &-temp {
+      font-size: 4.5rem;
+      line-height: 1;
+    }
+  }
+
+  &-extra, &-current {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-current {
+    margin-left: auto;
+    text-align: right;
+
+    &-location {
+      font-size: 1rem;
+    }
+
+    &-date, &-weather {
+      font-size: 1rem;
+      color: lighten($current-color, 20);
+    }
+  }
+}
+
+@mixin card-container(){
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  padding: 0.5rem 0;
+}
+
+@mixin card-element() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.5rem;
+  color: $current-color;
+}
+
+.weather-hourly {
+  @include card-container;
+
+  &-card {
+    @include card-element;
+    background-color: darken($current-bg-color, 6);
+    width: 20%;
+    gap: 8px;
+
+    &-hour {
+      font-size: 1.4rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    &-temp {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.weather-daily {
+  @include card-container();
+
+  &-card {
+    @include card-element();
+    cursor: pointer;
+    flex: 1;
+    justify-content: center;
+
+    &:hover {
+      background-color: darken($current-bg-color, 15);
+    }
+
+    &-day {
+      font-size: 1.3rem;
+    }
+
+    &-temp {
+      display: flex;
+      justify-content: space-between;
+
+      &-min {
+        color: lighten($current-color, 20);
+      }
+    }
+  }
+}

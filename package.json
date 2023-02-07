@@ -1,0 +1,32 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.tsx",
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "4.7.1",
+    "react-scripts": "3.4.4"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.10",
+    "@types/react-dom": "^16.8.3",
+    "sass": "latest",
+    "typescript": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
+    "sass": "sass ./src/styles.scss ./public/styles.css"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
